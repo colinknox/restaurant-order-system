@@ -35,11 +35,24 @@ class TakeoutOrder(Order):
     def process_order(self):
         return "Order prepared for pickup"
 
+class DeliveryOrder(Order):
+    def __init__(self, items, total):
+        super().__init__(items, total)
+
+    def calculate_fees(self):
+        return 5
+    
+    def process_order(self):
+        return "Order dispatched for delivery"
+
 
 
 order = Order(["Gang-Jeong", "Cheesling"], 10)
 dine_in_order = DineInOrder(["Burger", "Chicken fries", "Soda"], 50)
 takeout_order = TakeoutOrder(["Water"], 5)
+delivery_order = DeliveryOrder(["Pizza", "Soda", "Chips"], 25)
+
+
 
 # print(f"""
 # ITEMS: {order.items}
@@ -49,12 +62,12 @@ takeout_order = TakeoutOrder(["Water"], 5)
 # """)
 
 print(f"""
-ITEMS           : {takeout_order.items}
-TOTAL           : {takeout_order.total}
-TAX             : {takeout_order.calculate_tax()}
-CALCULATE FEES  : {takeout_order.calculate_fees()}
-PROCESS ORDER   : {takeout_order.process_order()}
-FINAL TOTAL     : {takeout_order.get_final_total()}
+ITEMS           : {delivery_order.items}
+TOTAL           : {delivery_order.total}
+TAX             : {delivery_order.calculate_tax()}
+CALCULATE FEES  : {delivery_order.calculate_fees()}
+PROCESS ORDER   : {delivery_order.process_order()}
+FINAL TOTAL     : {delivery_order.get_final_total()}
 """)
 
 
