@@ -44,30 +44,3 @@ class DeliveryOrder(Order):
     
     def process_order(self):
         return "Order dispatched for delivery"
-
-
-
-order = Order(["Gang-Jeong", "Cheesling"], 10)
-dine_in_order = DineInOrder(["Burger", "Chicken fries", "Soda"], 50)
-takeout_order = TakeoutOrder(["Water"], 5)
-delivery_order = DeliveryOrder(["Pizza", "Soda", "Chips"], 25)
-
-
-
-# print(f"""
-# ITEMS: {order.items}
-# TOTAL: {order.total}
-# TAX: {order.calculate_tax()}
-# FINAL TOTAL: {order.get_final_total()}
-# """)
-
-print(f"""
-ITEMS           : {delivery_order.items}
-TOTAL           : {delivery_order.total}
-TAX             : {delivery_order.calculate_tax()}
-CALCULATE FEES  : {delivery_order.calculate_fees()}
-PROCESS ORDER   : {delivery_order.process_order()}
-FINAL TOTAL     : {delivery_order.get_final_total()}
-""")
-
-
